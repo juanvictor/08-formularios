@@ -54,7 +54,6 @@ export class ReactiveComponent implements OnInit {
         ciudad  : ['', Validators.required ]
       }),
       pasatiempos: this.fb.array([
-        [], [], [], [], []
       ])
     });
   }
@@ -79,6 +78,18 @@ export class ReactiveComponent implements OnInit {
         ciudad  : 'Sucre'
       }
     });
+
+    // === CARGAR DATA ARRAY - IMPORTANTE ===
+    // ['Comer', 'Dormir'].forEach( valor => this.pasatiempos.push( this.fb.control(valor) ) );
+  }
+
+  agregarPasatiempo() {
+    // this.pasatiempos.push( this.fb.control('Nuevo elemento', Validators.required) );
+    this.pasatiempos.push( this.fb.control('') );
+  }
+
+  borrarPasatiempo(i: number) {
+    this.pasatiempos.removeAt(i);
   }
 
   guardar() {
