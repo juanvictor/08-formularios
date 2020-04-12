@@ -1,14 +1,14 @@
 <h4>Formularios <small> Template </small></h4>
 <hr>
 <form autocomplete="off" (ngSubmit)="guardar( forma )" #forma="ngForm">
-
     <div>
-
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre</label>
 
             <div class="col-8">
                 <input [ngModel]="usuario.nombre" [class.is-invalid]="nombre.invalid && nombre.touched" class="form-control" type="text" name="nombre" placeholder="Nombre" required minlength="5" #nombre="ngModel">
+
+                <small *ngIf="nombre.invalid && nombre.touched" class="form-text text-danger">Ingrese 5 letras</small>
             </div>
         </div>
 
@@ -16,7 +16,9 @@
             <label class="col-2 col-form-label">Apellido</label>
 
             <div class="col-8">
-                <input class="form-control" type="text" placeholder="Apellido">
+                <input [ngModel]="usuario.apellido" [class.is-invalid]="apellido.invalid && apellido.touched" class="form-control" type="text" name="apellido" placeholder="Apellido" required minlength="5" #apellido="ngModel">
+
+                <small *ngIf="apellido.invalid && apellido.touched" class="form-text text-danger">Ingrese 5 letras</small>
             </div>
         </div>
 
@@ -26,11 +28,11 @@
         <label class="col-2 col-form-label">Correo</label>
 
         <div class="col-8">
-            <input ngModel [class.is-invalid]="correo.invalid && correo.touched" class="form-control" type="email" name="correo" placeholder="Correo electrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #correo="ngModel">
+            <input [ngModel]="usuario.correo" [class.is-invalid]="correo.invalid && correo.touched" class="form-control" type="email" name="correo" placeholder="Correo electrónico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #correo="ngModel">
+
+            <small *ngIf="correo.invalid && correo.touched" class="form-text text-danger">El correo es obligatorio</small>
         </div>
     </div>
-
-
 
     <div class="form-group row">
         <label class="col-2 col-form-label">&nbsp;</label>
@@ -40,5 +42,4 @@
       </button>
         </div>
     </div>
-
 </form>
