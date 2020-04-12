@@ -40,11 +40,11 @@
         <label class="col-2 col-form-label">Dirección</label>
         <div class="form-row col">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Distrito" formControlName="distrito">
+                <input type="text" class="form-control" placeholder="Distrito" formControlName="distrito" [class.is-invalid]="distritoNoValido">
             </div>
 
             <div class="col">
-                <input type="text" class="form-control" placeholder="Ciudad" formControlName="ciudad">
+                <input type="text" class="form-control" placeholder="Ciudad" formControlName="ciudad" [class.is-invalid]="ciudadNoValido">
             </div>
         </div>
     </div>
