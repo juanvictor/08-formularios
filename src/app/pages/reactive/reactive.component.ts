@@ -14,6 +14,7 @@ export class ReactiveComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.crearFormulario();
+    this.cargarDataAlFormulario();
   }
 
   ngOnInit(): void {
@@ -51,6 +52,28 @@ export class ReactiveComponent implements OnInit {
     });
   }
 
+  cargarDataAlFormulario() {
+    // this.forma.setValue({
+    //   nombre   : 'Juanv',
+    //   apellido : 'Chavez',
+    //   correo   : 'juan@gmail.com',
+    //   direccion: {
+    //     distrito: '3',
+    //     ciudad  : 'Sucre'
+    //   }
+    // });
+
+    this.forma.reset({
+      nombre   : 'Juanv',
+      apellido : 'Chavez',
+      correo   : 'juan@gmail.com',
+      direccion: {
+        distrito: '3',
+        ciudad  : 'Sucre'
+      }
+    });
+  }
+
   guardar() {
     console.log(this.forma);
 
@@ -63,6 +86,11 @@ export class ReactiveComponent implements OnInit {
         }
       });
     }
+
+    // === Posteo de la información ===
+    this.forma.reset({
+      nombre: 'Sin nombre'
+    });
   }
 
 }
